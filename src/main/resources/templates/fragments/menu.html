@@ -18,107 +18,33 @@
                     </span>
             </a>
           </li>
-            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_RH') ">
-                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                      <i class="icon fa-solid fa-user-doctor"></i>
-                    </span>
-                    <span class="nav-link-title">
-                      CONGES
-                    </span>
-                </a>
-
-                <div class="dropdown-menu">
-                    <div class="dropdown-menu-columns">
-                        <div class="dropdown-menu-column">
-                            <a class="dropdown-item" th:href="@{/leaves/list}" sec:authorize="hasRole('ROLE_RH')">
-                                Conges en attente
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-          <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_RH') or hasRole('ROLE_SERVICE')">
-            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                      <i class="icon fa-solid fa-user-doctor"></i>
-                    </span>
-                    <span class="nav-link-title">
-                      Recrutement
-                    </span>
-            </a>
-
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-                    <a class="dropdown-item" th:href="@{/advertisement/list}" sec:authorize="hasRole('ROLE_RH')">
-                        Annonces
-                    </a>
-                    <a class="dropdown-item" th:href="@{/request/list}" sec:authorize="hasRole('ROLE_RH')">
-                        Requêtes
-                    </a>
-                    <a class="dropdown-item" th:href="@{/leaves/list}" sec:authorize="hasRole('ROLE_RH')">
-                    </a>
-                    <a class="dropdown-item" th:href="@{/request/list/service}">
-                        Nos Requêtes
-                    </a>
-                    <a class="dropdown-item" th:href="@{/jobCategory/list}">
-                        Categories de metier
-                    </a>
-                    <a class="dropdown-item" th:href="@{/job/list}">
-                        Métiers
-                    </a>
-                </div>
-              </div>
-            </div>
-          </li>
-
             <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_USER')">
                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                       <i class="icon fa-solid fa-user-doctor"></i>
                     </span>
                     <span class="nav-link-title">
-                      Recrutement
+                      Achat
                     </span>
                 </a>
 
                 <div class="dropdown-menu">
                     <div class="dropdown-menu-columns">
                         <div class="dropdown-menu-column">
-                            <a class="dropdown-item" th:href="@{/advertisement}">
-                                Offres d'emploi
+                            <a class="dropdown-item" th:href="@{/request/ask/''}" >
+                                Demande
+                            </a>
+                            <a class="dropdown-item" th:href="@{/request/list}" sec:authorize="hasRole('ROLE_ADMIN')" >
+                                liste des demandes en attente
+                            </a>
+                            <a class="dropdown-item" th:href="@{/purchase/list}" sec:authorize="hasRole('ROLE_ADMIN')" >
+                                liste des achats en attente
                             </a>
                         </div>
                     </div>
                 </div>
             </li>
 
-
-            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_USER')">
-                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                      <i class="icon fa-solid fa-user-doctor"></i>
-                    </span>
-                    <span class="nav-link-title">
-                      CONGES
-                    </span>
-                </a>
-
-                <div class="dropdown-menu">
-                    <div class="dropdown-menu-columns">
-                        <div class="dropdown-menu-column">
-                            <a class="dropdown-item" th:href="@{leaves/requestDeductible/ask}">
-                                Demande de conges deductible
-                            </a>
-                            <a class="dropdown-item" th:href="@{/leaves/requestNonDeductible/ask}">
-                                Demande de conges non-deductible
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
 
         </ul>
 
