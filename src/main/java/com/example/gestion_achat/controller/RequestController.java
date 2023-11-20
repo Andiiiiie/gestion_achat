@@ -45,7 +45,7 @@ public class RequestController {
         request.setUser_requester(user);
         request.setState(0);
         requestRepository.save(request);
-        return new ModelAndView("redirect:ask");
+        return new ModelAndView("redirect:/request/ask/''");
     }
 
     public User get_connected()

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+
+<head th:replace="~{fragments/head :: head(title='Details bon de commande')}"></head>
+
+<body class="layout-boxed">
+
+<div class="page">
+    <header th:replace="~{fragments/navbar}"></header>
+    <header th:replace="~{fragments/menu}"></header>
+
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div th:replace="~{fragments/page_header :: pageHeader(pageTitle='details bon de commande')}"></div>
+
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <!-- Content here -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Informations fournisseur</h2>
+                            </div>
+                            <div class="card-body">
+                                <table id="table1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Designation</th>
+                                        <th>Valeur</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Nom</td>
+                                        <td th:text="${orderConfirmation.getSupplier().getName()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adresse</td>
+                                        <td th:text="${orderConfirmation.getSupplier().getAdresse()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact</td>
+                                        <td th:text="${orderConfirmation.getSupplier().getContact()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Responsable</td>
+                                        <td th:text="${orderConfirmation.getSupplier().getResponsable()}"></td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Service</th>
+                                        <th>Produit</th>
+                                        <th>Quantite</th>
+                                    </tr>
+                                    </tfoot>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Informations achat</h2>
+                            </div>
+                            <div class="card-body">
+                                <table id="table2" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Designation</th>
+                                        <th>Valeur</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Produit</td>
+                                        <td th:text="${orderConfirmation.getProduct().getDesignation()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quantite</td>
+                                        <td th:text="${orderConfirmation.getQuantity()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prix HC</td>
+                                        <td th:text="${orderConfirmation.getPrixHT()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prix TVA</td>
+                                        <td th:text="${orderConfirmation.getTva()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prix TTC</td>
+                                        <td th:text="${orderConfirmation.getPrixTTC()}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Delai de livraison</td>
+                                        <td th:text="${orderConfirmation.getDelivery()}"></td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Designation</th>
+                                        <th>Valeur</th>
+                                    </tr>
+                                    </tfoot>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a th:href="@{/order/export/{id} (id=${orderConfirmation.getId()})}" class="btn btn-warning">
+                        details
+                    </a>
+                </div>
+
+        </div>
+
+        <!-- Page footer -->
+        <footer th:replace="~{fragments/footer}"></footer>
+    </div>
+</div>
+
+<script th:replace="~{fragments/script}"></script>
+</body>
+
+</html>

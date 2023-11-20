@@ -31,14 +31,26 @@
                 <div class="dropdown-menu">
                     <div class="dropdown-menu-columns">
                         <div class="dropdown-menu-column">
+                            <a class="dropdown-item" th:href="@{/price/create}" sec:authorize="hasRole('ROLE_ACHAT')" >
+                                Prix fournisseurs
+                            </a>
                             <a class="dropdown-item" th:href="@{/request/ask/''}" >
                                 Demande
                             </a>
-                            <a class="dropdown-item" th:href="@{/request/list}" sec:authorize="hasRole('ROLE_ADMIN')" >
+                            <a class="dropdown-item" th:href="@{/request/list}" sec:authorize="hasRole('ROLE_ACHAT')" >
                                 liste des demandes en attente
                             </a>
-                            <a class="dropdown-item" th:href="@{/purchase/list}" sec:authorize="hasRole('ROLE_ADMIN')" >
+                            <a class="dropdown-item" th:href="@{/purchase/list}" sec:authorize="hasRole('ROLE_ACHAT')" >
                                 liste des achats en attente
+                            </a>
+                            <a class="dropdown-item" th:href="@{/order/list}" sec:authorize="hasRole('ROLE_ACHAT')" >
+                                liste des bons de commandes
+                            </a>
+                            <a class="dropdown-item" th:href="@{/order/finance/list}" sec:authorize="hasRole('ROLE_FINANCE')" >
+                                liste des bons de commandes
+                            </a>
+                            <a class="dropdown-item" th:href="@{/order/DG/list}" sec:authorize="hasRole('ROLE_DG')" >
+                                liste des bons de commandes
                             </a>
                         </div>
                     </div>

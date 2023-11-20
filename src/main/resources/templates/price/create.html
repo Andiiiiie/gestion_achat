@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+
+<head th:replace="~{fragments/head :: head(title='Insertion prix')}"></head>
+
+<body class="layout-boxed">
+
+<div class="page">
+    <header th:replace="~{fragments/navbar}"></header>
+    <header th:replace="~{fragments/menu}"></header>
+
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div th:replace="~{fragments/page_header :: pageHeader(pageTitle='Insertion prix')}"></div>
+
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <!-- Content here -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <form class="card" th:object="${price}" th:action="@{/price/create}" method="post">
+                            <div class="card-header">
+                                <a th:href="@{/price/list}" class="btn btn-primary">
+                                    Liste des prix
+                                    <i class="fa-solid fa-list mx-2"></i>
+                                </a>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Date</label>
+                                            <input type="date" class="form-control"  th:field="*{price_date}"
+                                                   required />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Fournisseur</label>
+                                            <select class="form-select" th:field="*{supplier}">
+                                                <option th:each="supplier: ${supplierList}" th:text="${supplier.getName()}" th:value="${supplier.getId()}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Produit</label>
+                                            <select class="form-select" th:field="*{product}">
+                                                <option th:each="product: ${productList}" th:text="${product.getDesignation()}" th:value="${product.getId()}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Prix unitaire</label>
+                                            <input type="text" class="form-control"  th:field="*{unitPrice}"
+                                                   required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer d-flex justify-content-end">
+                                <button type="submit" class="btn btn-success">
+                                    Enregistrer
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Page footer -->
+        <footer th:replace="~{fragments/footer}"></footer>
+    </div>
+</div>
+
+<script th:replace="~{fragments/script}"></script>
+</body>
+
+</html>

@@ -20,11 +20,13 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
+
         String str=user.getRoles();
         String[] strArray = str.split(",");
         for(String s: strArray){
             authorities.add(new SimpleGrantedAuthority("ROLE_" +s));
         }
+        authorities.add(new SimpleGrantedAuthority("ROLE_" +user.getService().getName()));
         return authorities;
     }
 

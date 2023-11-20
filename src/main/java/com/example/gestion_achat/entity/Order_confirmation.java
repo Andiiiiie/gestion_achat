@@ -26,7 +26,7 @@ public class Order_confirmation {
     private Price price;
 
     @Column(name = "quantity")
-    private String quantity;
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name = "purchase_id")

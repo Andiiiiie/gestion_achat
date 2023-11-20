@@ -12,6 +12,15 @@ public class Supplier {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "contact")
+    private String contact;
+
+    @Column(name = "responsable")
+    private String responsable;
+
+    @Column(name = "adresse")
+    private String adresse;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
